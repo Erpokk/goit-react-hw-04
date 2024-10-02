@@ -18,6 +18,9 @@ jobs:
         env:
           VITE_UNSPLASH_API_KEY: ${{ secrets.VITE_UNSPLASH_API_KEY }}
 
+      - name: Verify API Key
+        run: echo "VITE_UNSPLASH_API_KEY=${{ secrets.VITE_UNSPLASH_API_KEY }}"
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
