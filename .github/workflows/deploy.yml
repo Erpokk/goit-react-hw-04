@@ -7,6 +7,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: github-pages # Убедитесь, что используете правильное окружение
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -16,7 +17,7 @@ jobs:
           npm install
           npm run build
         env:
-          VITE_UNSPLASH_API_KEY: ${{ secrets.VITE_UNSPLASH_API_KEY }}
+          VITE_UNSPLASH_API_KEY: ${{ secrets.VITE_UNSPLASH_API_KEY }} # Используйте секрет
 
       - name: Verify API Key
         run: echo "VITE_UNSPLASH_API_KEY=${{ secrets.VITE_UNSPLASH_API_KEY }}"
