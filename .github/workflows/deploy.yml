@@ -7,7 +7,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: API_unsplash # Убедитесь, что имя окружения правильное
+    environment: github-pages
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
