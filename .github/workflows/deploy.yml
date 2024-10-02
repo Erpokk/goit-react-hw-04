@@ -7,19 +7,12 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    environment: API_unsplah
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "20"
-
       - name: Install and build 🔧
-        env:
-          VITE_UNSPLASH_API_KEY: ${{ secrets.VITE_UNSPLASH_API_KEY }} # Передача секрета в среду
         run: |
           npm install
           npm run build
@@ -30,4 +23,5 @@ jobs:
           branch: gh-pages
           folder: dist
         env:
+          VITE_UNSPLASH_API_KEY: ${{ secrets.VITE_UNSPLASH_API_KEY }} # Передача секрета в среду
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
